@@ -11,6 +11,10 @@ RUN set -ex; \
   \
   SCALA_BINARY_VERSION=$(echo $SCALA_VERSION | cut -f 1-2 -d '.'); \
   
+  groupadd -g 999 appuser && \
+    useradd -r -u 999 -g appuser appuser; \
+  USER appuser
+  
   mkdir -p /opt/kafka; \
   
   chmod -R a=u /opt/kafka; \
