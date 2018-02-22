@@ -19,10 +19,6 @@ RUN groupadd -r app &&\
 # Chown all the files to the app user.
 RUN chown -R app:app $APP_HOME
 
-# Change to the app user.
-USER app
-
-
 ## SETTING UP THE APP ##
 WORKDIR $APP_HOME
 
@@ -52,3 +48,6 @@ RUN set -ex; \
 ####################################################################
 ####################################################################
 ####################################################################
+
+# Change to the app user.
+USER app
