@@ -13,7 +13,7 @@ RUN set -ex; \
   
   mkdir -p /opt/kafka; \
   
-  RUN chmod -R a=u /opt/kafka; \
+  chmod -R a=u /opt/kafka; \
   
   curl -SLs "https://www-eu.apache.org/dist/kafka/$KAFKA_VERSION/kafka_$SCALA_BINARY_VERSION-$KAFKA_VERSION.tgz" | tar -xzf - --strip-components=1 -C /opt/kafka; \
   \
