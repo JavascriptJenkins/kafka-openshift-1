@@ -13,7 +13,7 @@ RUN set -ex; \
   
   groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser; \
-  USER appuser
+  USER appuser ; \
   
   mkdir -p /opt/kafka; \
   
