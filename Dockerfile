@@ -9,6 +9,9 @@ FROM solsson/kafka-jre@sha256:06dabfc8cacd0687c8f52c52afd650444fb6d4a8e0b85f6855
 # Create the home directory for the new app user.
 RUN mkdir -p /opt/kafka
 
+# Chown all the files to the app user.
+RUN chown -R app:app $APP_HOME
+
 # Create an app user so our program doesn't run as root.
 RUN groupadd -r app &&\
     useradd -r -g app -d /opt/kafka -s /sbin/nologin -c "Docker image user" app
@@ -45,9 +48,6 @@ RUN set -ex; \
 ####################################################################
 ####################################################################
 ####################################################################
-
-# Chown all the files to the app user.
-RUN chown -R app:app $APP_HOME
 
 # Change to the app user.
 USER app
