@@ -12,12 +12,12 @@ RUN mkdir -p /opt/kafka
 # Set the home directory to our app user's home.
 ENV APP_HOME=/opt/kafka
 
-# Chown all the files to the app user.
-RUN chown -R app:app $APP_HOME
-
 # Create an app user so our program doesn't run as root.
 RUN groupadd -r app &&\
     useradd -r -g app -d /opt/kafka -s /sbin/nologin -c "Docker image user" app
+    
+# Chown all the files to the app user.
+RUN chown -R app:app $APP_HOME
 
 
 ## SETTING UP THE APP ##
