@@ -17,7 +17,6 @@ RUN groupadd -r app &&\
 ENV APP_HOME=/opt/kafka
 
 ## SETTING UP THE APP ##
-RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 ####################################################################
