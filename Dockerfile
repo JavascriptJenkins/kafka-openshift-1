@@ -13,7 +13,6 @@ RUN set -ex; \
   
   groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser; \
-  USER appuser ; \
   
   mkdir -p /opt/kafka; \
   
@@ -27,4 +26,5 @@ RUN set -ex; \
   rm -rf /var/lib/apt/lists/*; \
   rm -rf /var/log/dpkg.log /var/log/alternatives.log /var/log/apt; \
 
-WORKDIR /opt/kafka
+ WORKDIR /opt/kafka
+ USER appuser
