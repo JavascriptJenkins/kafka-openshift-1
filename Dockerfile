@@ -9,6 +9,9 @@ FROM solsson/kafka-jre@sha256:06dabfc8cacd0687c8f52c52afd650444fb6d4a8e0b85f6855
 # Create the home directory for the new app user.
 RUN mkdir -p /opt/kafka
 
+# Set the home directory to our app user's home.
+ENV APP_HOME=/opt/kafka
+
 # Chown all the files to the app user.
 RUN chown -R app:app $APP_HOME
 
@@ -16,8 +19,6 @@ RUN chown -R app:app $APP_HOME
 RUN groupadd -r app &&\
     useradd -r -g app -d /opt/kafka -s /sbin/nologin -c "Docker image user" app
 
-# Set the home directory to our app user's home.
-ENV APP_HOME=/opt/kafka
 
 ## SETTING UP THE APP ##
 WORKDIR $APP_HOME
